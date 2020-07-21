@@ -46,20 +46,39 @@ def minimumSwaps(arr):
     # print(arr)
     first = None
     second = None
-    for i in range(len(arr)):
-        if arr[i] == i+1:
-            print('in its place')
+    swapped = 0
+    inPlace = [False for i in range(len(arr))]
+    print(inPlace)
+    print('start: ', arr)
+    while(False in inPlace):
+        for i in range(len(arr)):
+            if arr[i] == i+1:
+                print('in its place: ', arr[i])
+                inPlace[i] = True
 
-        else:
-            # not in place
-            first = arr[i]
-            
-            # find what number first is taking its position
-            for j in range(len(arr)):
-                if arr[j] == i+1:
-                    # swap with index of first number
-                    arr[j], arr[first-1] = arr[first-1], arr[j]
-                print('swapped: ', arr)
-    print(arr)
+            else:
+                # not in place
+                first = arr[i]
+                
+                # find what number first is taking its position
+                for j in range(len(arr)):
+                    if arr[j] == i+1 :
+                        # swap with index of first number
+                        # print('arr[j]', arr[j])
+                        # print('i+1', i+1)
+                        if arr[j] != arr[first-1]:
+                            arr[j], arr[first-1] = arr[first-1], arr[j]
+                            print('\t', arr[j])
+                            print('\t', arr[first-1])
+                            print('swapped1: ', arr)
+                            swapped += 1
+                        arr[i], arr[first-1] = arr[first-1], arr[i]
+                        print('\t', arr[i])
+                        print('\t', arr[first-1])
+                        print('swapped2: ', arr)
+                        swapped += 1
+        print("Finished: ", arr)
+        print("Finished: ", inPlace)
+        print("Swapped Count: ", swapped)
 
 minimumSwaps(arr)

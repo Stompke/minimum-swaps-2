@@ -40,7 +40,7 @@ P:
 
 """
 
-arr = [7, 1, 3, 2, 4, 5, 6]
+arr = [4, 3, 1, 2]
 
 def minimumSwaps(arr):
     # print(arr)
@@ -76,7 +76,7 @@ def minimumSwaps(arr):
                     # swap numbers in the list
                     arr[cache[i+1]], arr[first-1] = arr[first-1], arr[cache[i+1]]
                     # swap numbers in the cache
-                    cache[cache[i+1]], cache[first] = cache[first], cache[cache[i+1]]
+                    cache[i+1], cache[first] = cache[first], cache[i+1]
                     swapped += 1
                     print("\t", arr[cache[i+1]])
                     print("\t", arr[first-1])
@@ -108,5 +108,6 @@ def minimumSwaps(arr):
         print("Finished: ", arr)
         print("Finished: ", inPlace)
         print("Swapped Count: ", swapped)
+        print("should be: 3")
 
 minimumSwaps(arr)

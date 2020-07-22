@@ -70,41 +70,37 @@ def minimumSwaps(arr):
                 first = arr[i]
 
                 # Find what number belongs in that index by pulling from cache
-                cache[i+1]
-                if arr[cache[i+1]] != arr[first-1]:
-                    
-                    # swap numbers in the list
-                    arr[cache[i+1]], arr[first-1] = arr[first-1], arr[cache[i+1]]
-                    # swap numbers in the cache
-                    cache[i+1], cache[first] = cache[first], cache[i+1]
-                    swapped += 1
+                # cache[i+1]
+                # print(inPlace)
+                # print(arr[cache[i+1]])
+                # print(cache)
+                # print(arr)
+                if arr[cache[i+1]] != arr[first-1] :
+                    print('cache before: ', cache)
+                    print('arr before: ', arr)
                     print("\t", arr[cache[i+1]])
                     print("\t", arr[first-1])
+                    
+                    # swap numbers in the list
+                    first_num = cache[i+1]
+                    second_num = arr[first-1]
+                    arr[cache[i+1]], arr[first-1] = arr[first-1], arr[cache[i+1]]
                     print("swapped1: ", arr)
+                    # swap numbers in the cache
+                    swapped += 1
+                    cache[i+1], cache[second_num] = cache[second_num], cache[i+1]
+                    print('cache after: ', cache)
+                    print('arr after: ', arr)
+                print('cache before: ', cache)
+                print('arr before: ', arr)
                 arr[i], arr[first-1] = arr[first-1], arr[i]
                 cache[i+1], cache[first] = cache[first], cache[i+1]
                 swapped += 1
                 print("\t", arr[i])
                 print("\t", arr[first-1])
                 print("swapped2: ", arr)
-                
-                # find what number first is taking its position
-                # for j in range(len(arr)):
-                #     if arr[j] == i+1 :
-                #         # swap with index of first number
-                #         # print('arr[j]', arr[j])
-                #         # print('i+1', i+1)
-                #         if arr[j] != arr[first-1]:
-                #             arr[j], arr[first-1] = arr[first-1], arr[j]
-                #             print('\t', arr[j])
-                #             print('\t', arr[first-1])
-                #             print('swapped1: ', arr)
-                #             swapped += 1
-                #         arr[i], arr[first-1] = arr[first-1], arr[i]
-                #         print('\t', arr[i])
-                #         print('\t', arr[first-1])
-                #         print('swapped2: ', arr)
-                #         swapped += 1
+                print('cache after: ', cache)
+                print('arr after: ', arr)
         print("Finished: ", arr)
         print("Finished: ", inPlace)
         print("Swapped Count: ", swapped)
